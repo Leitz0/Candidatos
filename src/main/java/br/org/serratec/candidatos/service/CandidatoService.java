@@ -1,6 +1,7 @@
 package br.org.serratec.candidatos.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,6 +27,23 @@ public class CandidatoService {
 		
 	}
 	
+	public Optional<CandidatoDto> obterPorId(Long id){
+		Optional <Candidato> candidato = repository.findById(id);
+		if(candidato.isPresent()) {
+		return Optional.of(candidato.get().toDto());
+		}
+		return Optional.empty();
+	}
 	
+	public Optional<CandidatoDto> atualizarCandidato( Long id,  CandidatoDto candidato){
+		Candidato candidatoEntity = candidato.toEntity();
+		
+		if(repository.existsById(id)) {
+			candidatoEntity.setId(id);
+			repository.save(candidatoEntity);
+			return Optional.of(candidatoEntity.toDto());
+		}
+		return Optional.empty();
+	}
 	
 }
