@@ -12,7 +12,7 @@ public class Candidato {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nome;
-	private int numeroCandidato;
+	private String numeroCandidato;
 	private String partido;
 	private String cidade;
 	private String estado;
@@ -21,7 +21,7 @@ public class Candidato {
 	
 	public Candidato () {}
 	
-	public Candidato(Long id, String nome, int numeroCandidato, String partido, String cidade, String estado,
+	public Candidato(Long id, String nome, String numeroCandidato, String partido, String cidade, String estado,
 			String cargo) {
 		super();
 		this.id = id;
@@ -46,10 +46,10 @@ public class Candidato {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public int getNumeroCandidato() {
+	public String getNumeroCandidato() {
 		return numeroCandidato;
 	}
-	public void setNumeroCandidato(int numeroCandidato) {
+	public void setNumeroCandidato(String numeroCandidato) {
 		this.numeroCandidato = numeroCandidato;
 	}
 	public String getPartido() {
