@@ -85,4 +85,9 @@ public class CandidatoController {
 	public ResponseEntity<List<CandidatoDto>> obterCandidatoPorCidadeCargo(@RequestBody CargoCidadeDto dto ){
 		return ResponseEntity.ok(service.obterPorCidadeCargo(dto.cidade(),dto.cargo()));
 	}
+	
+	@GetMapping("/partidocidade")
+	public ResponseEntity<List<CandidatoDto>> obterCandidatoPorCidadePardido(@RequestBody PartidoDto dto){
+		return ResponseEntity.ok(service.obterPorCidadePartido(dto.partido(), dto.cidade()));
+	}
 }

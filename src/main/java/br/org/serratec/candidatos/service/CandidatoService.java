@@ -75,6 +75,11 @@ public class CandidatoService {
 		return repository.findByCidadeAndCargo(cidade,cargo).stream().map(c-> new CandidatoDto(c.getId(), c.getNome(), c.getNumeroCandidato(),
 				c.getPartido(), c.getCidade(), c.getEstado(), c.getCargo())).toList();
 	}
+
+	public List<CandidatoDto> obterPorCidadePartido(String partido, String cidade) {
+		return repository.findByPartidoAndCidade(partido,cidade).stream().map(c-> new CandidatoDto(c.getId(), c.getNome(), c.getNumeroCandidato(),
+				c.getPartido(), c.getCidade(), c.getEstado(), c.getCargo())).toList();
+	}
 	
 	
 	

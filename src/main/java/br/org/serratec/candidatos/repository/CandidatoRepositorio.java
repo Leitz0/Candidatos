@@ -13,4 +13,5 @@ public interface CandidatoRepositorio extends JpaRepository<Candidato,Long>{
 	List <Candidato> findByCidadeContainingIgnoreCase(String cidade);
 	List <Candidato> findByCargoContainingIgnoreCase(String cargo);
 	List <Candidato> findByCidadeAndCargo(String cidade, String cargo);
+	List <Candidato> findByPartidoAndCidade(String partido,String cidade);
 }
